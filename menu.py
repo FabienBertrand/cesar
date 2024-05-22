@@ -1,4 +1,4 @@
-from encodage import decoder_caesar, encoder_caesar
+from encodage import decoder_caesar, encoder_caesar, brute_force
 
 
 def menu():
@@ -24,10 +24,7 @@ def menu():
         else:
             message = input('Message ? \n')
 
-        if not choix == '3':
-            clef = int(input('Clef ? \n'))
-
-        submenu(message, clef)
+        submenu(message)
 
 
 def submenu(message, clef=0):
@@ -38,10 +35,17 @@ def submenu(message, clef=0):
     choix = input().lower()
 
     if choix == '1':
+        clef = int(input('Clef ? \n'))
         print(encoder_caesar(message, clef))
         return
     elif choix == '2':
+        clef = int(input('Clef ? \n'))
         print(decoder_caesar(message, clef))
+        return
+    elif choix == '3':
+        mot_a_retrouver = input('Mot a retrouver ? \n')
+        res = brute_force(message, mot_a_retrouver)
+        print(f'Le message était {res[0]} avec une clé de {res[1]}')
         return
     if choix == 'q':
         return
