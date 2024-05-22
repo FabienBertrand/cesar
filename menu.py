@@ -27,7 +27,7 @@ def menu():
         submenu(message)
 
 
-def submenu(message, clef=0):
+def submenu(message):
     print('1. encrypter')
     print('2. decrypter')
     print('3. bruteforce')
@@ -50,4 +50,4 @@ def submenu(message, clef=0):
     if choix == 'q':
         return
     else:
-        submenu()
+        submenu(message)
