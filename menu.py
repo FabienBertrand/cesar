@@ -1,3 +1,5 @@
+from encodage import decoder_caesar, encoder_caesar
+
 def menu():
     while True:
         print('1. utiliser dans la console')
@@ -41,8 +43,8 @@ def submenu(depuis_fichier):
         clef = input('Clef ? \n')
 
     if choix == '1':
-        #print(encrypt(message, clef))
+        print(encoder_caesar(message, clef))
         menu()
     elif choix == '2':
-        #print(decrypt(message, clef))
+        print(decoder_caesar(message, clef))
         menu()
