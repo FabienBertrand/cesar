@@ -2,7 +2,6 @@ import string
 
 alphabet = string.ascii_lowercase
 
-
 def encoder_caesar(mot, clef):
     mot_encode = ""
     for i in range(len(mot)):
@@ -23,7 +22,3 @@ def decoder_caesar(mot_encode, clef):
             rang_lettre_mot += 26
         mot += alphabet[rang_lettre_mot]
     return mot
-
-
-print(encoder_caesar("abczyx", 1))
-print(decoder_caesar(encoder_caesar("abczyx", 1), 1))

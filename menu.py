@@ -6,12 +6,11 @@ def menu():
         print('2. à partir d\'un fichier')
         print('q. quitter')
 
+        choix = input().lower()
         if choix == 'q':
             break
 
-        depuis_fichier = input().lower() == '2'
-
-
+        submenu(choix == '2')
 
 
 def submenu(depuis_fichier):
@@ -20,11 +19,6 @@ def submenu(depuis_fichier):
     print('3. bruteforce')
     print('q. retour')
     choix = input().lower()
-
-    if choix == 'q':
-        return
-    else:
-        submenu()
 
     if depuis_fichier:
         filename = input('filename ? \n')
@@ -40,11 +34,15 @@ def submenu(depuis_fichier):
         message = input('Message ? \n')
 
     if not choix == '3':
-        clef = input('Clef ? \n')
+        clef = int(input('Clef ? \n'))
 
     if choix == '1':
         print(encoder_caesar(message, clef))
-        menu()
+        return
     elif choix == '2':
         print(decoder_caesar(message, clef))
-        menu()
+        return
+    if choix == 'q':
+        return
+    else:
+        submenu(depuis_fichier)
