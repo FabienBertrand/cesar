@@ -11,31 +11,31 @@ def menu():
         if choix == 'q':
             break
 
-        submenu(choix == '2')
+        if choix == '2':
+            filename = input('filename ? \n')
+            try:
+                f = open(filename, 'r')
+            except FileNotFoundError:
+                print('Fichier introuvable')
+                return
+            else:
+                with f:
+                    message = f.read()
+        else:
+            message = input('Message ? \n')
+
+        if not choix == '3':
+            clef = int(input('Clef ? \n'))
+
+        submenu(message, clef)
 
 
-def submenu(depuis_fichier):
+def submenu(message, clef=0):
     print('1. encrypter')
     print('2. decrypter')
     print('3. bruteforce')
     print('q. retour')
     choix = input().lower()
-
-    if depuis_fichier:
-        filename = input('filename ? \n')
-        try:
-            f = open(filename, 'r')
-        except FileNotFoundError:
-            print('Fichier introuvable')
-            return
-        else:
-            with f:
-                message = f.read()
-    else:
-        message = input('Message ? \n')
-
-    if not choix == '3':
-        clef = int(input('Clef ? \n'))
 
     if choix == '1':
         print(encoder_caesar(message, clef))
@@ -46,4 +46,4 @@ def submenu(depuis_fichier):
     if choix == 'q':
         return
     else:
-        submenu(depuis_fichier)
+        submenu()
