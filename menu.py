@@ -1,5 +1,6 @@
 from encodage import decoder_caesar, encoder_caesar
 
+
 def menu():
     while True:
         print('1. utiliser dans la console')
