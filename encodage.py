@@ -2,7 +2,6 @@ import string
 
 alphabet = string.ascii_lowercase
 
-
 def encoder_caesar(mot, clef):
     mot_encode = ""
     for i in range(len(mot)):
