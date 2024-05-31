@@ -19,9 +19,8 @@ def decoder_caesar(mot_encode, clef):
     decrypted_array.append(mot)
     return decrypted_array
 
-def decrypter_fichier_texte(clef):
+def decrypter_fichier_texte(clef,crypted_file):
     #crypted_file = input(" Quel est le nom du fichier a décrypter ? ")
-    crypted_file = "test_file.txt"
     whole_path = os.path.join(os.path.abspath(os.path.curdir), crypted_file)
     if os.path.isfile(whole_path):
         word_file = open(whole_path, 'r', encoding='utf8')
@@ -44,5 +43,3 @@ def ecrire_fichier_decrypte():
         for word in array:
             file.write(word + ' ')
     return
-
-decrypter_fichier_texte(1)
