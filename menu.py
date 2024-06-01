@@ -1,5 +1,6 @@
 from encodage import decoder_caesar, encoder_caesar, brute_force
-
+from decrypter_fichier_texte import decrypter_fichier_texte
+from encrypter_fichier_texte import encrypter_fichier_texte
 
 def menu():
     while True:
@@ -12,20 +13,25 @@ def menu():
             break
 
         if choix == '2':
-            filename = input('filename ? \n')
-            try:
-                f = open(filename, 'r')
-            except FileNotFoundError:
-                print('Fichier introuvable')
-                return
-            else:
-                with f:
-                    message = f.read()
+            print('1. Encrypter un fichier texte')
+            print('2. Decrypter un fichier texte')
+            choix2 = input().lower()
+            if choix2 == '1':
+                filename = input('Précisez le nom du fichier à encrypter : ')
+                clef = input('Choisissez une valeur pour la clés de chiffrement : ')
+                encrypter_fichier_texte(int(clef), filename)
+                print("Le message encrypté est écrit dans le fichier 'output.txt' \n")
+                break
+
+            elif choix2 == '2':
+                filename = input('Précisez le nom du fichier à décrypter : ')
+                clef = input('Quelle est la valeur de la clés de chiffrement : ')
+                decrypter_fichier_texte(int(clef),filename)
+                print("Le message décrypté est écrit dans le fichier 'output.txt' \n")
+                break
         else:
             message = input('Message ? \n')
-
-        submenu(message)
-
+            submenu(message)
 
 def submenu(message):
     print('1. encrypter')
