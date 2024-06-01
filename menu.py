@@ -13,9 +13,9 @@ def menu():
             break
 
         if choix == '2':
-            print('1. Encrypter un fichier texte')
-            print('2. Decrypter un fichier texte')
-            choix2 = input().lower()
+            print('Tapez 1 pour encrypter un fichier texte\n')
+            print('Tapez 2 pour décrypter un fichier texte\n')
+            choix2 = input("Votre choix : ").lower()
             if choix2 == '1':
                 filename = input('Précisez le nom du fichier à encrypter : ')
                 clef = input('Choisissez une valeur pour la clés de chiffrement : ')

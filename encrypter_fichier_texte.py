@@ -28,7 +28,7 @@ def ecrire_fichier_crypte():
     return
 def encrypter_fichier_texte(clef,crypted_file):
     #crypted_file = input(" Quel est le nom du fichier a décrypter ? ")
-
+    clef = clef % 26
     whole_path = os.path.join(os.path.abspath(os.path.curdir), crypted_file)
     if os.path.isfile(whole_path):
         word_file = open(whole_path, 'r', encoding='utf8')

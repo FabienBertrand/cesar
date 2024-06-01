@@ -20,6 +20,7 @@ def decoder_caesar(mot_encode, clef):
     return decrypted_array
 
 def decrypter_fichier_texte(clef,crypted_file):
+    clef = clef % 26
     #crypted_file = input(" Quel est le nom du fichier a décrypter ? ")
     whole_path = os.path.join(os.path.abspath(os.path.curdir), crypted_file)
     if os.path.isfile(whole_path):
