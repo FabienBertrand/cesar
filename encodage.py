@@ -2,11 +2,11 @@ import string
 
 alphabet = string.ascii_lowercase
 
-
+#fonction permettant d'encoder un mot à partir d une clef donné
 def encoder_caesar(mot, clef):
     mot_encode = ""
     for i in range(len(mot)):
-        if mot[i] == ' ':
+        if mot[i] == ' ':#permet de garder les espaces
             mot_encode += ' '
         else:
             rang_lettre_mot = alphabet.find(mot[i])
@@ -16,7 +16,7 @@ def encoder_caesar(mot, clef):
             mot_encode += alphabet[rang_lettre_mot_encode]
     return mot_encode
 
-
+#fonction permettant de decoder un mot à partir d une clef donné (revient au même que la fonction precedente avec une clef négative)
 def decoder_caesar(mot_encode, clef):
     mot = ""
     for i in range(len(mot_encode)):
@@ -30,7 +30,7 @@ def decoder_caesar(mot_encode, clef):
             mot += alphabet[rang_lettre_mot]
     return mot
 
-
+#fonction permettant de brut force un message encoder en Caesar a condition de lui donner un mot connu du message à décripter
 def brute_force(message, mot_a_trouver):#renvoie le message decode et la clef
     liste_mot = message.split()  # Diviser le contenu, split() par défaut sépare par les espaces
     for i in range(len(liste_mot)):
