@@ -31,7 +31,7 @@ def decoder_caesar(mot_encode, clef):
     return mot
 
 
-def brute_force(message, mot_a_trouver):#renvoie le message decode et la clef
+def brute_force(message, mot_a_trouver): # renvoie le message decode et la clef
     liste_mot = message.split()  # Diviser le contenu, split() par défaut sépare par les espaces
     for i in range(len(liste_mot)):
         for j in range(25):
