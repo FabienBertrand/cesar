@@ -27,7 +27,7 @@ def ecrire_fichier_decrypte():
             file.write(word + ' ')
     return
 def decrypter_fichier_texte(clef,crypted_file):
-    clef = clef % 26   # Gestion des clefs négatives par l'opération modulo
+    clef = clef % 26   # Gestion des clefs négatives avec l'opération modulo
     word_file = open(crypted_file, 'r', encoding='utf8')  # Ouverture en mode lecture
     words = word_file.read()
     word_array = words.split(" ")

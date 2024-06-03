@@ -12,7 +12,7 @@ def encoder_caesar(mot, clef):  # On boucle sur chaque lettre du mot à chiffrer
         else:
             rang_lettre_mot = alphabet.find(mot[i])
             rang_lettre_mot_encode = rang_lettre_mot + clef   # Décalage de l'indice de la lettre dans l'alphabet + valeur de la clef
-            if rang_lettre_mot_encode > 25:   # gestion des clef supérieur à 26
+            if rang_lettre_mot_encode > 25:   # gestion des clefs supérieur à 26
                 rang_lettre_mot_encode -= 26
             mot_encode += alphabet[rang_lettre_mot_encode]
     crypted_array.append(mot_encode)
