@@ -1,33 +1,43 @@
 from encodage import decoder_caesar, encoder_caesar, brute_force
 from decrypter_fichier_texte import decrypter_fichier_texte
 from encrypter_fichier_texte import encrypter_fichier_texte
-
+import os
 def menu():
     while True:
-        print('1. utiliser dans la console')
-        print('2. à partir d\'un fichier')
-        print('q. quitter')
+        print("\nBienvenu! veuillez choisir une option pour encrypter ou décrypter du texte selon le chiffrement César\n")
+        print("Tapez 1 pour utiliser le programme en mode console")
+        print("Tapez 2 pour utiliser le programme sur un fichier texte")
+        print("Tapez 'q' pour fermer le programme")
+        choix = input("Votre choix : ").lower()
 
-        choix = input().lower()
         if choix == 'q':
             break
 
         if choix == '2':
-            print('Tapez 1 pour encrypter un fichier texte\n')
-            print('Tapez 2 pour décrypter un fichier texte\n')
+            print('\nTapez 1 pour encrypter un fichier texte')
+            print('Tapez 2 pour décrypter un fichier texte')
             choix2 = input("Votre choix : ").lower()
+
             if choix2 == '1':
-                filename = input('Précisez le nom du fichier à encrypter : ')
-                clef = input('Choisissez une valeur pour la clés de chiffrement : ')
-                encrypter_fichier_texte(int(clef), filename)
-                print("Le message encrypté est écrit dans le fichier 'output.txt' \n")
+                filename = input('\nPrécisez le nom du fichier à encrypter : ')
+                clef = input('Choisissez une valeur pour la clef de chiffrement : ')
+                whole_path = os.path.join(os.path.abspath(os.path.curdir),filename)
+                if os.path.isfile(whole_path):
+                    encrypter_fichier_texte(int(clef), whole_path)
+                    print("\nLe message encrypté est écrit dans le fichier 'output.txt' \n")
+                else:
+                    print("\nFichier introuvable. Assurez-vous que l'orthographe du nom du fichier est correcte.\n")
                 break
 
             elif choix2 == '2':
-                filename = input('Précisez le nom du fichier à décrypter : ')
-                clef = input('Quelle est la valeur de la clés de chiffrement : ')
-                decrypter_fichier_texte(int(clef),filename)
-                print("Le message décrypté est écrit dans le fichier 'output.txt' \n")
+                filename = input('\nPrécisez le nom du fichier à décrypter : ')
+                clef = input('Quelle est la valeur de la clef de chiffrement : ')
+                whole_path = os.path.join(os.path.abspath(os.path.curdir), filename)
+                if os.path.isfile(whole_path):
+                    decrypter_fichier_texte(int(clef),whole_path)
+                    print("\nLe message décrypté est écrit dans le fichier 'output.txt' \n")
+                else:
+                    print("\nFichier introuvable. Assurez-vous que l'orthographe du nom du fichier est correcte.\n")
                 break
         else:
             message = input('Message ? \n')
