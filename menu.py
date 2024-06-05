@@ -46,31 +46,32 @@ def menu():
                 break
         #Lance la partie du programme qui permet d'utiliser les fonctions directement dans la console
         else:
-            message = input('Message ? \n')
+            message = input('\nEcrivez le message à traiter : ')
             submenu(message)
 
 def submenu(message):
     #Affiche le menu
+    print('\nChoisissez une des options suivantes :')
     print('1. encrypter')
     print('2. decrypter')
     print('3. bruteforce')
     print('q. retour')
-    choix = input().lower()
+    choix = input("Votre choix : ").lower()
 
     #Demande la cle du code et encode/decode
     if choix == '1':
-        clef = int(input('Clef ? \n'))
-        print(f'Le mot encodé est {encoder_caesar(message, clef)}')
+        clef = int(input('\nClef : '))
+        print(f'\nLe mot encodé est {encoder_caesar(message, clef)}')
         return
     elif choix == '2':
-        clef = int(input('Clef ? \n'))
-        print(f'Le mot décodé est {decoder_caesar(message, clef)}')
+        clef = int(input('\nClef : '))
+        print(f'\nLe mot décodé est {decoder_caesar(message, clef)}')
         return
     #bruteforce en utilisant un mot connu
     elif choix == '3':
-        mot_a_retrouver = input('Mot a retrouver ? \n')
+        mot_a_retrouver = input('\nMot a retrouver : ')
         res = brute_force(message, mot_a_retrouver)
-        print(f'Le message était {res[0]} avec une clé de {res[1]}')
+        print(f'\nLe message était {res[0]} avec une clé de {res[1]}')
         return
     #retour en arriere au menu
     if choix == 'q':
