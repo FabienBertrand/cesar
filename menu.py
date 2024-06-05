@@ -7,7 +7,7 @@ import os
 def menu():
     while True:
         #Affiche le Menu
-        print("\n Bienvenu! veuillez choisir une option pour encrypter ou décrypter du texte selon le chiffrement César\n")
+        print("\nBienvenu! veuillez choisir une option pour encrypter ou décrypter du texte selon le chiffrement César\n")
         print("Tapez 1 pour utiliser le programme en mode console")
         print("Tapez 2 pour utiliser le programme sur un fichier texte")
         print("Tapez 'q' pour fermer le programme")
